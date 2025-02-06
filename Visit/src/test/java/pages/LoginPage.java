@@ -15,7 +15,7 @@ public class LoginPage {
 	    // Method to input user_name
 	    public void username() {
 	        WebElement uname = driver.findElement(By.xpath("//input[@name='userId']"));
-	        uname.sendKeys("manager1@ictkerala.org ");
+	        uname.sendKeys("manager1@ictkerala.org");
 	    }
 
 	    // Method to input password
@@ -34,10 +34,22 @@ public class LoginPage {
 	        WebElement loginButton = driver.findElement(By.xpath("//button[text()='Sign In']"));
 	        loginButton.click();
 	    }
-	    public void Dashcheck() {
+	    public String Dashcheck() {
 	        // Verify login is successful by checking a specific element (dash_board title)
 	        WebElement dashboardElement = driver.findElement(By.xpath("//p[contains(@class, 'text-') and contains(text(), 'Manager 1')]"));
-	        System.out.println(dashboardElement.getText());
+	        return dashboardElement.getText();
+	      
+	     
 	    }
-}
+	    public void Count()
+	    {
+	    	WebElement total_visit=driver.findElement(By.xpath("/html/body/div/div/div/main/div[1]/div[1]/div[2]/div/h2"));
+	    	String total_visits = total_visit.getText();
+	    	WebElement upcoming_visit=driver.findElement(By.xpath("/html/body/div/div/div/main/div[1]/div[2]/div[2]/div/h2"));
+	    	String upcoming_visits = upcoming_visit.getText();
+	    	WebElement visits = driver.findElement(By.xpath("/html/body/div/div/div[1]/div[1]/div[2]/p[1]"));
+	    	String visit = visits.getText();
+	    		
+	    }
+}//div[@id='root']/div/div/div/div[2]/p
 
